@@ -1,0 +1,27 @@
+.toolbar-item-spacer {
+    flex: 1 1 auto;
+}
+.color{
+    background-color: black;
+    color:white;
+}
+mat-list-item{
+    color:white;
+}
+a{
+    color:white;
+}
+.app-container {
+    height: 90%;
+    margin: 0;
+}  
+.app-sidenav {
+    width: 14%;
+    border:1px solid black;
+}
+.app-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+} 

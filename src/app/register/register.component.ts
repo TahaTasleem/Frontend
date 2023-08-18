@@ -25,10 +25,8 @@ export class RegisterComponent implements OnInit {
       console.log(data);
       if (data) {
         console.log("Response has success: true");
-        // Do something when success is true
       } else {
         console.log("Response does not have success: true");
-        // Do something when success is not true
       }
     },error=>{
       console.log(error);

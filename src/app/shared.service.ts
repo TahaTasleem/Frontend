@@ -6,12 +6,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SharedService {
   readonly APIUrl = "https://localhost:7299";
-
   constructor(private http: HttpClient) {}
+  
       LoginUser(val:any){
-        return this.http.post(this.APIUrl+'/Auth/login',val);
+        const options = {
+          withCredentials: true // This is crucial for sending the Authorization header
+        };
+        return this.http.post(this.APIUrl+'/Auth/login',val,options);
       }
       AddUser(val:any){
-        return this.http.post(this.APIUrl+'/User',val);
+        const options = {
+          withCredentials: true // This is crucial for sending the Authorization header
+        };
+        return this.http.post(this.APIUrl+'/User',val,options);
       }
 }

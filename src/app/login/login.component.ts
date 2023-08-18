@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ export class LoginComponent implements OnInit {
   userCredentials: any = {};
   username: string = ''; 
   password: string = ''; 
-  constructor(private service:SharedService) { }
+  token: any;
+  constructor(private service:SharedService,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,7 +20,13 @@ export class LoginComponent implements OnInit {
     this.userCredentials.username = this.username;
     this.userCredentials.password = this.password;
     this.service.LoginUser(this.userCredentials).subscribe(data => {
-      console.log(data);
+      if (data.hasOwnProperty('token')) {
+        alert("Login Successful");
+        this.router.navigate(['/dashboard']);
+      } else {
+        console.log('Token not found in the response');
+      }
+
     },
     error => {
       console.error(error.status);
